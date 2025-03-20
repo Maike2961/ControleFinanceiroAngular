@@ -51,5 +51,9 @@ export class ChartPizzaComponent implements OnInit {
     }, { pago: 0, aPagar: 0 });
   }
 
+  formatTooltip(item: any): string {
+    return `R$ ${item.value.toFixed(2)}`; // Formata o valor com R$
+  }
+
 
 }
