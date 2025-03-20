@@ -28,6 +28,7 @@ export class FormularioComponent {
 
   opcoesCategoria = [
     {label: 'Carro', value: 'carro'},
+    {label: 'Entreterimento', value: 'entreterimento'},
     {label: 'FastFood', value: 'fastfood'},
     {label: 'Pizza', value: 'pizza'},
     {label: 'Mercado', value: 'mercado'},
