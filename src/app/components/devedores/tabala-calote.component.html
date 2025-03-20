@@ -1,0 +1,16 @@
+<section class="devedor">
+    <table>
+        <thead>
+            <th>Categoria</th>
+            <th>Descrição</th>
+            <th>Preço</th>
+        </thead>
+        <tbody>
+            <tr *ngFor="let dados of tabelaCaloteiro">
+                <td>{{dados.categoria}}</td>
+                <td>{{dados.descricao}}</td>
+                <td>{{dados.preco | currency: 'BRL'}}</td>
+            </tr>
+        </tbody>
+    </table>
+</section>

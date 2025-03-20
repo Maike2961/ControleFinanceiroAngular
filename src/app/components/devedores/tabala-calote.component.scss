@@ -1,0 +1,21 @@
+.devedor {
+    padding: 0.50rem 0.10rem;
+    width: 100%;
+    text-align: center;
+    height: 20rem;
+    background-color: #dfe5e7;
+    border-radius: 5rem; 
+    overflow-y: auto;
+    scroll-behavior: smooth;
+}
+
+.devedor table {
+    width: 100%; 
+    border-collapse: collapse;
+}
+
+
+.devedor tbody {
+    height: calc(25rem - 2rem); 
+    overflow-y: auto; 
+}
