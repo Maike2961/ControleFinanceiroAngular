@@ -1,38 +1,6 @@
 {
   "financias": [
     {
-      "id": "1",
-      "categoria": "Carro",
-      "descricao": "Gasolina",
-      "preco": "50",
-      "data": "2025-09-03",
-      "isPago": "sim"
-    },
-    {
-      "id": "181f",
-      "categoria": "fastfood",
-      "descricao": "McDonalds",
-      "preco": "35.00",
-      "data": "2025-03-08T00:00:00.000Z",
-      "isPago": "não"
-    },
-    {
-      "id": "2f65",
-      "categoria": "fastfood",
-      "descricao": "mcDonalds",
-      "preco": "55.00",
-      "data": "2025-03-09T00:00:00.000Z",
-      "isPago": "sim"
-    },
-    {
-      "id": "f4fa",
-      "categoria": "mercado",
-      "descricao": "compras do mês",
-      "preco": "350.00",
-      "data": "2025-03-09T00:00:00.000Z",
-      "isPago": "sim"
-    },
-    {
       "id": "b367",
       "categoria": "carro",
       "descricao": "Des",
@@ -70,6 +38,30 @@
       "descricao": "teste comida",
       "preco": "90.00",
       "data": "2025-03-09",
+      "isPago": "não"
+    },
+    {
+      "id": "6ae5",
+      "categoria": "pessoa",
+      "descricao": "Devendo ao Richard",
+      "preco": "145.00",
+      "data": "2025-03-20",
+      "isPago": "não"
+    },
+    {
+      "id": "1861",
+      "categoria": "entreterimento",
+      "descricao": "Cinema",
+      "preco": "35.00",
+      "data": "2025-03-15",
+      "isPago": "não"
+    },
+    {
+      "id": "56d0",
+      "categoria": "pizza",
+      "descricao": "Pizzaria na Quinta",
+      "preco": "60.00",
+      "data": "2025-03-18",
       "isPago": "não"
     }
   ]
