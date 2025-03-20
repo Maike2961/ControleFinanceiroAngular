@@ -1,0 +1,38 @@
+.widget-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 2rem;
+}
+
+.widget-item{
+    padding: 1rem;
+    border-radius: 1rem;
+    transition: all .5s ease-in-out;
+
+    .widget-icon{
+        font-size: 1.5rem;
+        padding-right: 1rem;
+    }
+
+    .widget-text{
+        font-family: "Roboto", sans-serif;
+        font-weight: 400;
+        font-size: 18px;
+    }
+}
+
+.widget-item:hover{
+    animation: pulse 0.8s infinite alternate;
+}
+
+@keyframes pulse{
+    from{
+        transform: translateY(0) scale(1);
+    }
+    to{
+        transform: translateY(-8px) scale(1);
+    }
+}
+
+

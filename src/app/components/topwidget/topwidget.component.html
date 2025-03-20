@@ -1,0 +1,8 @@
+<div class="widget-container">
+    <div class="widgets" *ngFor="let dados of navWidget">
+        <div class="widget-item" [ngStyle]="{background: dados.color}">
+            <i class="widget-icon" [class]="dados.icon"></i>
+            <span class="widget-text">{{dados.label}}</span>
+        </div>
+    </div>
+</div>
