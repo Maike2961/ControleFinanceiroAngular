@@ -8,7 +8,7 @@ import { Financias } from '../interface/interface';
 })
 export class FinanceServiceService {
 
-  url = "http://localhost:3000/financias"
+  private url = "http://localhost:3000/financias"
 
   constructor(private http: HttpClient) { }
 
@@ -21,5 +21,17 @@ export class FinanceServiceService {
     return this.http.post<Financias>(`${this.url}`, financias);
   }
 
+  putFinancias(financias: Financias): Observable<Financias>{
+    return this.http.put<Financias>(`${this.url}/${financias.id}`, financias);
+  }
+
+  getFinancias(financias: Financias): Observable<Financias>{
+    console.log('service', financias)
+    return this.http.get<Financias>(`${this.url}/${financias.id}`);
+  }
+
+  deleteFinancias(financias: Financias): Observable<Financias>{
+    return this.http.delete<Financias>(`${this.url}/${financias.id}`);
+  }
 
 }
