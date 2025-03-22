@@ -7,6 +7,11 @@
     border-radius: 5rem; 
     overflow-y: auto;
     scroll-behavior: smooth;
+
+    .title{
+        font-size: 16pt;
+        font-weight: 400;
+    }
 }
 
 .devedor table {

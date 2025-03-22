@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { TabalaCaloteComponent } from './tabala-calote.component';
+import { TabalaCaloteComponent } from './tableDevedores.component';
 
 describe('TabalaCaloteComponent', () => {
   let component: TabalaCaloteComponent;

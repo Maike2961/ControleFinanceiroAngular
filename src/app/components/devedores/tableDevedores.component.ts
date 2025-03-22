@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FinanceServiceService } from '../../service/finance-service.service';
+import { FinanceServiceService } from '../../service/finance.service';
 import { CommonModule } from '@angular/common';
 import { Financias } from '../../interface/interface';
 
@@ -7,8 +7,8 @@ import { Financias } from '../../interface/interface';
   selector: 'app-tabala-calote',
   standalone: true,
   imports: [CommonModule],
-  templateUrl: './tabala-calote.component.html',
-  styleUrl: './tabala-calote.component.scss'
+  templateUrl: './tableDevedores.component.html',
+  styleUrl: './tableDevedores.component.scss'
 })
 export class TabalaCaloteComponent implements OnInit{
   
