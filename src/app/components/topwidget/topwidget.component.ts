@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { widgetContainers } from './widgetContainer';
 import { CommonModule } from '@angular/common';
-import { FinanceServiceService } from '../../service/finance-service.service';
+import { FinanceServiceService } from '../../service/finance.service';
 import { noop } from 'rxjs';
 
 @Component({
@@ -44,6 +44,7 @@ export class TopwidgetComponent implements OnInit{
       });
 
       this.novoWidget = this.navWidget.map(novo => {
+
         const total =  this.totaisCategoria[novo.label.toLowerCase()] || 0;
         return {
           ...novo,

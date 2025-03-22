@@ -1,9 +1,8 @@
 import { Component } from '@angular/core';
 import {TopwidgetComponent} from '../topwidget/topwidget.component'
-import { widgetContainers } from '../topwidget/widgetContainer';
 import { ChartsComponent } from "../gastosMensais/charts.component";
 import { ChartPizzaComponent } from "../chart-pizza/chart-pizza.component";
-import { TabalaCaloteComponent } from "../devedores/tabala-calote.component";
+import { TabalaCaloteComponent } from "../devedores/tableDevedores.component";
 
 
 @Component({

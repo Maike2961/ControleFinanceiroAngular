@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FinanceServiceService } from '../../service/finance-service.service';
+import { FinanceServiceService } from '../../service/finance.service';
 import { Financias } from '../../interface/interface';
 import { NgxChartsModule } from '@swimlane/ngx-charts';
 import { CommonModule } from '@angular/common';
