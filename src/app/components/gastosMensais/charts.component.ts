@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NgxChartsModule } from '@swimlane/ngx-charts';
 import { CommonModule } from '@angular/common';
-import { FinanceServiceService } from '../../service/finance-service.service';
+import { FinanceServiceService } from '../../service/finance.service';
 import { Financias } from '../../interface/interface';
 
 @Component({
@@ -35,9 +35,8 @@ export class ChartsComponent implements OnInit {
 
       // Mapeia os dados para o formato esperado pelo ngx-charts
       this.chartData = Object.keys(groupData).map(date => ({
-
         name: new Date(date).toLocaleDateString('pt-BR', { month: 'long', year: 'numeric' }),
-        value: groupData[date] // Soma dos preços
+        value: groupData[date], // Soma dos preços
       }));
     }
     )
@@ -62,6 +61,10 @@ export class ChartsComponent implements OnInit {
 
       return acc;
     }, {} as { [key: string]: number });
+  }
+
+  formatNumber(value: any): string{
+    return `R$ ${value.toFixed(2)}`
   }
 }
 
