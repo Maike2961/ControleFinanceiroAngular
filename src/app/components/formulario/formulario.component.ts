@@ -1,22 +1,29 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { MatSnackBar, MatSnackBarModule } from '@angular/material/snack-bar'
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
-import { FinanceServiceService } from '../../service/finance-service.service';
+import { FinanceServiceService } from '../../service/finance.service';
 import { DataMinima } from './DataValidator';
+import { SharedService } from '../../shared/shared.service';
 
 @Component({
   selector: 'app-formulario',
   standalone: true,
-  imports: [CommonModule,  ReactiveFormsModule, MatSnackBarModule],
+  imports: [CommonModule, ReactiveFormsModule, MatSnackBarModule],
   templateUrl: './formulario.component.html',
   styleUrl: './formulario.component.scss'
 })
-export class FormularioComponent {
+export class FormularioComponent implements OnInit {
 
   newForm!: FormGroup
+  Edit: boolean = false;
+  itemEditId: String | null = null;
 
-  constructor(private snackBar: MatSnackBar, private service: FinanceServiceService) {
+  constructor(
+    private snackBar: MatSnackBar,
+    private service: FinanceServiceService,
+    private sharedService: SharedService) {
+
     this.newForm = new FormGroup({
       categoria: new FormControl('', [Validators.required]),
       descricao: new FormControl('', [Validators.required, Validators.minLength(3)]),
@@ -27,44 +34,67 @@ export class FormularioComponent {
   }
 
   opcoesCategoria = [
-    {label: 'Carro', value: 'carro'},
-    {label: 'Entreterimento', value: 'entreterimento'},
-    {label: 'FastFood', value: 'fastfood'},
-    {label: 'Pizza', value: 'pizza'},
-    {label: 'Mercado', value: 'mercado'},
-    {label: 'Pessoa', value: 'pessoa'},
-    {label: 'Comprinhas', value: 'comprinhas'},
+    { label: 'Carro', value: 'carro' },
+    { label: 'Entreterimento', value: 'entreterimento' },
+    { label: 'FastFood', value: 'fastfood' },
+    { label: 'Pizza', value: 'pizza' },
+    { label: 'Mercado', value: 'mercado' },
+    { label: 'Pessoa', value: 'pessoa' },
+    { label: 'Comprinhas', value: 'comprinhas' },
   ]
 
-  OnSubmit(){
-    if(this.newForm.valid){
-      
+
+  ngOnInit(): void {
+    this.sharedService.itemEdit$.subscribe((item) => {
+      if (item) {
+        this.Edit = true;
+        this.itemEditId = item.id;
+        this.newForm.patchValue(item);
+      }
+    })
+  }
+
+  OnSubmit() {
+    if (this.newForm.valid) {
+
       const formValue = {
-        ...this.newForm.value, 
+        ...this.newForm.value,
         preco: parseFloat(this.newForm.value.preco).toFixed(2),
         isPago: this.newForm.value.isPago ? "sim" : "não"
       };
 
-      this.service.postFinancias(formValue).subscribe({
+      if (this.Edit && this.itemEditId !== null) {
+ 
+        const updateItem = { ...formValue, id: this.itemEditId }
 
-        next: (response)=>{
-          this.snackBar.open('Formulário enviado com sucesso!', 'Fechar', {
-            duration: 3000,
-            horizontalPosition: 'right',
-            verticalPosition: 'top'
-          });
-        },
+        this.service.putFinancias(updateItem).subscribe(() => {
+          this.showSnackBar('Atualizado com sucesso', 'success')
+          this.sharedService.cleanItem();
+        });
 
-        error: (err) => {
-          this.snackBar.open('Erro ao enviar Formulário', 'Fechar', {
-            duration: 3000,
-            horizontalPosition: 'right',
-            verticalPosition: 'top'
-          });
-        },
+      } else {
 
-      })
+        this.service.postFinancias(formValue).subscribe({
+          next: () => {
+            this.showSnackBar('Adicionado com sucesso', 'success')
+          },
+          error: () => {
+            this.showSnackBar('Erro ao adicionar', 'error')
+          },
+
+        })
+      }
       this.newForm.reset();
     }
+  }
+
+
+  private showSnackBar(message: string, type: string) {
+    this.snackBar.open(message, 'Fechar', {
+      duration: 3000,
+      horizontalPosition: 'right',
+      verticalPosition: 'top',
+      panelClass: type === 'sucess' ? ['snack-success'] : ['snack-error']
+    })
   }
 }
