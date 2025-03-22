@@ -5,7 +5,7 @@ export interface SideNavToggle {
 }
 
 export interface Financias{
-    _id: number,
+    id: String,
     categoria: String,
     descricao: String,
     data: Date,
