@@ -34,10 +34,16 @@ export class ChartsComponent implements OnInit {
       const groupData = this.groupByDate(data);
 
       // Mapeia os dados para o formato esperado pelo ngx-charts
-      this.chartData = Object.keys(groupData).map(date => ({
-        name: new Date(date).toLocaleDateString('pt-BR', { month: 'long', year: 'numeric' }),
-        value: groupData[date], // Soma dos preços
-      }));
+      this.chartData = Object.keys(groupData).map(date => {
+
+        const [year, month] = date.split("-")
+
+        const newdate = new Date(parseInt(year), parseInt(month), - 1, 1)
+        return {
+          name: newdate.toLocaleDateString("pt-BR", {month: "short", year: "numeric"}),
+          value: groupData[date]
+        }
+      });
     }
     )
   }
