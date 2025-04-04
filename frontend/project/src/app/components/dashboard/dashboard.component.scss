@@ -1,0 +1,32 @@
+.middle-section {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+
+    .widget {
+        height: 18rem;
+        margin-top: 2rem;
+    }
+}
+
+
+.bottom-section{
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 1rem; 
+
+    .widget{
+        height: 20rem;
+        margin-top: 1.5rem;
+        border-radius: 2rem;
+        background-color: #dfe5e7;
+        box-shadow: 5px 5px 5px #939393;
+
+        &.left{
+            width: 35rem;
+        }
+    }
+
+
+}
