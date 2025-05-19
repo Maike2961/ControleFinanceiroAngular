@@ -1,68 +1,60 @@
 {
   "financias": [
     {
-      "categoria": "comprinhas",
-      "descricao": "shoppe",
-      "preco": "21.00",
-      "data": "2025-03-09",
-      "isPago": "não",
-      "id": "35ee"
-    },
-    {
-      "id": "6599",
-      "categoria": "pizza",
-      "descricao": "peperone",
-      "preco": "10.00",
-      "data": "2025-03-09",
-      "isPago": "sim"
-    },
-    {
-      "id": "ecd7",
-      "categoria": "fastfood",
-      "descricao": "teste comida",
-      "preco": "90.00",
-      "data": "2025-03-09",
-      "isPago": "não"
-    },
-    {
-      "id": "6ae5",
-      "categoria": "pessoa",
-      "descricao": "Devendo ao Richard",
-      "preco": "145.00",
-      "data": "2025-03-20",
-      "isPago": "não"
-    },
-    {
-      "id": "1861",
       "categoria": "entreterimento",
       "descricao": "Cinema",
-      "preco": "35.00",
-      "data": "2025-03-15",
-      "isPago": "não"
+      "preco": "100.00",
+      "data": "2025-05-18",
+      "isPago": "não",
+      "id": "fad1"
     },
     {
-      "id": "56d0",
+      "id": "e533",
       "categoria": "pizza",
-      "descricao": "Pizzaria na Quinta",
+      "descricao": "Calabresa",
       "preco": "60.00",
-      "data": "2025-03-18",
+      "data": "2025-05-05",
       "isPago": "não"
     },
     {
-      "id": "2b81",
+      "id": "2f40",
       "categoria": "mercado",
-      "descricao": "Compra do mês",
-      "preco": "105.00",
-      "data": "2025-03-20",
-      "isPago": "sim"
+      "descricao": "Compras do mês",
+      "preco": "200.00",
+      "data": "2025-05-09",
+      "isPago": "não"
     },
     {
-      "id": "e4db",
-      "categoria": "carro",
-      "descricao": "Gasolina",
+      "id": "bf3f",
+      "categoria": "pessoa",
+      "descricao": "devendo ao richard",
+      "preco": "30.00",
+      "data": "2025-05-12",
+      "isPago": "não"
+    },
+    {
+      "id": "23e4",
+      "categoria": "comprinhas",
+      "descricao": "Hidrantante",
       "preco": "80.00",
-      "data": "2025-02-18",
-      "isPago": "sim"
+      "data": "2025-04-14",
+      "isPago": "não"
+    },
+    {
+      "id": "f6e0",
+      "categoria": "fastfood",
+      "descricao": "Burguer King",
+      "preco": "45.00",
+      "data": "2025-03-02",
+      "isPago": "não"
+    },
+    {
+      "id": "c119",
+      "categoria": "carro",
+      "descricao": "Alcool",
+      "preco": "90.00",
+      "data": "2025-03-08",
+      "isPago": "não"
     }
   ]
 }
