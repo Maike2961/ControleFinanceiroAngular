@@ -1,35 +1,43 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
-import { navbarData } from './navData';
+import { Component, EventEmitter, OnInit, Output} from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { RouterLink, RouterLinkActive } from '@angular/router';
-import { SideNavToggle } from '../../interface/interface';
+import { navbarData } from './navData';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-sidebar',
   standalone: true,
-  imports: [CommonModule, RouterLink, RouterLinkActive],
+  imports: [CommonModule, RouterLink],
   templateUrl: './sidebar.component.html',
   styleUrl: './sidebar.component.scss'
 })
-export class SidebarComponent implements OnInit {
+export class SidebarComponent implements OnInit{
   
-  @Output() onToggleSide: EventEmitter<SideNavToggle> = new EventEmitter();
-  
-  collapsed = false
-  screenWidth = 0;
-  sidebarData = navbarData
-  
+  sidebatData = navbarData;
+  collapsed: boolean = false;
+  screenWidth: number = 0;
+
   ngOnInit(): void {
     this.screenWidth = window.innerWidth;
   }
 
-  toggleCollapse(){
-    this.collapsed = !this.collapsed
-    this.onToggleSide.emit({collapsed: this.collapsed, screenWidth: this.screenWidth});
+  getBody(): string {
+    let style = '';
+    if(this.collapsed && this.screenWidth > 768){
+      style = 'body-trimed'
+    }else if (this.collapsed && this.screenWidth <= 768 && this.screenWidth > 0){
+      style = 'body-md-screen'
+    }
+    return style;
   }
 
-  closeSidenav(){
-    this.collapsed = false
-    this.onToggleSide.emit({collapsed: this.collapsed, screenWidth: this.screenWidth});
+  toggleCollapse(){
+    this.collapsed = !this.collapsed;
   }
+
+  closeCollapse(){
+    this.collapsed = false;
+  }
+
+  
+  
 }

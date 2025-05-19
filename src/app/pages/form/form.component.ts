@@ -1,20 +1,21 @@
-import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
-import { MatSnackBar, MatSnackBarModule } from '@angular/material/snack-bar'
+import { SidebarComponent } from '../../components/sidebar/sidebar.component';
+import { CommonModule } from '@angular/common';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import { MatSnackBar, MatSnackBarModule } from '@angular/material/snack-bar';
 import { FinanceServiceService } from '../../service/finance.service';
-import { DataMinima } from './DataValidator';
 import { SharedService } from '../../shared/shared.service';
+import { DataMinima } from './DataValidator';
 
 @Component({
-  selector: 'app-formulario',
+  selector: 'app-form',
   standalone: true,
-  imports: [CommonModule, ReactiveFormsModule, MatSnackBarModule],
-  templateUrl: './formulario.component.html',
-  styleUrl: './formulario.component.scss'
+  imports: [SidebarComponent, CommonModule, ReactiveFormsModule, MatSnackBarModule],
+  templateUrl: './form.component.html',
+  styleUrl: './form.component.scss'
 })
-export class FormularioComponent implements OnInit {
-
+export class FormComponent implements OnInit{
+  
   newForm!: FormGroup
   Edit: boolean = false;
   itemEditId: String | null = null;
@@ -53,6 +54,7 @@ export class FormularioComponent implements OnInit {
       }
     })
   }
+  
 
   OnSubmit() {
     if (this.newForm.valid) {
@@ -64,7 +66,7 @@ export class FormularioComponent implements OnInit {
       };
 
       if (this.Edit && this.itemEditId !== null) {
- 
+
         const updateItem = { ...formValue, id: this.itemEditId }
 
         this.service.putFinancias(updateItem).subscribe(() => {

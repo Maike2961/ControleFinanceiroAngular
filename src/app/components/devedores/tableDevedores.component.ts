@@ -19,7 +19,6 @@ export class TabalaCaloteComponent implements OnInit{
   ngOnInit(): void {
     this.service.getAllFinancias().subscribe(data => {
         const naoPagos = this.YesOrNot(data)
-
         this.tabelaCaloteiro = naoPagos.map(item => ({
           categoria: item.categoria,
           descricao: item.descricao,
@@ -30,7 +29,7 @@ export class TabalaCaloteComponent implements OnInit{
 
 
   private YesOrNot(data: Financias[]){
-    return data.filter(item => item.isPago == "não")
+    return data.filter(item => item.isPago === "não")
   }
 
 }

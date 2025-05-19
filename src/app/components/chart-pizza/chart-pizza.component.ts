@@ -30,7 +30,6 @@ export class ChartPizzaComponent implements OnInit {
         { name: 'Pago', value: totais.pago },
         { name: 'A Pagar', value: totais.aPagar }
       ];
-      console.log("Dados da pizza ", this.pieChartData)
     },
       error => {
         console.error("Erro ao carregar: ", error)

@@ -1,12 +1,12 @@
 export const navbarData = [
     {
-        routeLink: 'dashboard',
+        routeLink: '/dashboard',
         icon: 'fal fa-chart-bar',
         label: 'Dashboard'
     },
 
     {
-        routeLink: 'tables',
+        routeLink: '/tables',
         icon: 'fal fa-table',
         label: 'Tables'
     },

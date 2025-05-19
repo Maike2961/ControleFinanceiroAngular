@@ -1,4 +1,5 @@
-<form [formGroup]="newForm" (ngSubmit)="OnSubmit()" class="formulario">
+<app-sidebar>
+    <form [formGroup]="newForm" (ngSubmit)="OnSubmit()" class="formulario">
 
     <div class="form">
         <label for="categoria">
@@ -70,3 +71,4 @@
 
     <button class="btn-send" type="submit" [disabled]="!newForm.valid">Enviar</button>
 </form>
+</app-sidebar>

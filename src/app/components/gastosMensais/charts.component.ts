@@ -28,7 +28,6 @@ export class ChartsComponent implements OnInit {
 
   ngOnInit(): void {
     this.financeService.getAllFinancias().subscribe(data => {
-      console.log(data)
 
       // Agrupa os dados por mes e soma os preços
       const groupData = this.groupByDate(data);
@@ -41,7 +40,8 @@ export class ChartsComponent implements OnInit {
         const newdate = new Date(parseInt(year), parseInt(month), - 1, 1)
         return {
           name: newdate.toLocaleDateString("pt-BR", {month: "short", year: "numeric"}),
-          value: groupData[date]
+
+          value: groupData[date] //acessando o valor associado à chave
         }
       });
     }
@@ -54,8 +54,6 @@ export class ChartsComponent implements OnInit {
       const dateObj = new Date(item.data);
       const month = dateObj.toISOString().slice(0, 7) // Formata a data como YYYY-MM
       const preco = Number(item.preco)
-
-      console.log("Mes", month)
 
       if (!acc[month]) {
         acc[month] = 0;
